@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Missing Pets</h1>
+
+    {% if missing_pets %}
+        <div class="row">
+            {% for pet in missing_pets %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        {% if pet.pet_picture %}
+                            <img src="{{ pet.pet_picture.url }}" class="card-img-top" alt="{{ pet.pet_name }}" style="height: 200px; object-fit: cover;">
+                        {% else %}
+                            <img src="{% static 'images/default_pet.jpg' %}" class="card-img-top" alt="Default Pet Image" style="height: 200px; object-fit: cover;">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ pet.pet_name }}</h5>
+                            <p class="card-text"><strong>Breed:</strong> {{ pet.breed }}</p>
+                            <p class="card-text"><strong>Description:</strong> {{ pet.description|truncatewords:20 }}</p>
+                            <p class="card-text"><strong>Last Seen:</strong> {{ pet.last_seen }} on {{ pet.date_last_seen }}</p>
+                            <p class="card-text"><strong>Contact:</strong> {{ pet.contact_info }}</p>
+                            <small class="text-muted">Reported by {{ pet.user.username }} on {{ pet.reported_at|date:"F j, Y, g:i a" }}</small>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="text-center">
+            <h3>No missing pet reports found.</h3>
+            <p>Be the first to report a missing pet.</p>
+            <a href="{% url 'reportmissing_pet' %}" class="btn btn-success">Report a Missing Pet</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

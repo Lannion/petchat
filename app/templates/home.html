@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+    <!-- Welcome page for authenticated users -->
+    <div class="container-fluid chat-welcome-page">
+        <img src="{% static 'Asset/bg-pets.jpg'%}"  style="width: 100%; height: 100%; object-fit: cover;" alt="Cat Dog Logo">
+        <div class="overlay d-flex justify-content-center align-items-center" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <div class="text-center">
+                <h1 class="display-3 text-black animated fadeInDown">Welcome to the Chat Room, {{ user.username }}!</h1>
+                <p class="lead text-black animated fadeInUp">Feel free to start chatting with your friends and community.</p>
+                <a href="{% url 'chatroom' %}" class="btn btn-success btn-sm rounded animated fadeInUp">Enter Chat Room</a>
+                <a href="{% url 'reportmissing_pet' %}" class="btn btn-success btn-sm rounded animated fadeInUp">Report Missing Pet</a>
+                <a href="{% url 'news_page' %}" class="btn btn-success btn-sm rounded animated fadeInUp">Pet News</a>
+            </div>
+        </div>
+    </div>
+
+{% else %}
+    <!-- Welcome page for unauthenticated users -->
+<div class="d-flex justify-content-center align-items-center">
+    <div class="logo text-center">
+        <img src="{% static 'Asset/CatDogLogo.png'%}" alt="Cat Dog Logo">
+        <h2>Cavite Bacoor</h2>
+     
+        <h2>PET REGISTRATION</h2>
+        <p>Welcome to the Pet Registration System! </p><br>
+        <p>Our platform is designed to help pet owners easily register their furry friends, </p>
+        <p>ensuring their safety and well-being within the community. Whether you're a proud </p>
+        <p>cat or dog owner, system provides a seamless way to track and manage your pet's</p><br>
+        <p>Join us in creating a more pet-friendly environment!</p>
+        <p>System updates and features coming soon.</p>
+      
+    <div class="register-btn  text-center">
+        <a href="{% url 'register' %}">
+        <button class="rounded-circle">REGISTER</button> </a>
+    </div>
+
+    <div class="login-link text-center">
+        Already have an account? <a href="{% url 'login' %}">Login here</a>
+    </div>
+    </div>
+
+</div>
+
+{% block footer %}
+    <div class="social-links text-center">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+{% endblock %}
+</div>
+{% endif %}
+
+{% endblock %}
+

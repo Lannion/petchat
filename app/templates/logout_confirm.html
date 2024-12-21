@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    /* Flexbox Container */
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color:rgb(255, 255, 255);
+        padding: 20px;
+    }
+
+</style>
+
+
+
+<div class="col-md-6 offset-md-3">
+<h1>Are you sure you want to log out?</</h1>
+<br/>
+<br/>
+    <div class="form-container">
+        <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" name="confirm" value="yes">Yes</button>
+            <button type="submit" name="confirm" value="cancel">Cancel</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
