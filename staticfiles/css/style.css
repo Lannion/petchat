@@ -1,0 +1,145 @@
+@keyframes fadeInUp {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.navbar-nav .nav-link.right{
+    position: absolute;
+    right: 15px;
+}
+
+.navbar-brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.navbar{
+    background-color: #FFF2DF;
+    animation: fadeInUp 1s ease-in-out;
+    animation: fadeInDown 1s ease-in-out;
+
+}
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/*CSS Landing Pange*/
+    /* General Styling */
+   /* body {
+      font-family: 'Arial', sans-serif;
+      background-color: #FFF5E1;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #5C3D2E;
+      text-align: center;
+    }
+
+    /* Logo Section */
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+
+    .logo h2 {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #5C3D2E;
+    }
+
+    /* Heading and Paragraph */
+   
+
+    p {
+      font-size: 1.2em;
+      margin: 10px 20px;
+      line-height: 1.8em;
+      
+    }
+
+    /* Register Button */
+    .register-btn button {
+      background: linear-gradient(135deg, #FFF, #F3D9B1);
+      border: 2px solid #874C32;
+      border-radius: 30px;
+      padding: 5px 15px;
+      font-size: 1.2em;
+      color: #874C32;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .register-btn button:hover {
+      background: #F3D9B1;
+      color: #FFF;
+      border-color: #5C3D2E;
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+      transform: scale(1.05);
+    }
+
+    /* Login Link */
+    .login-link {
+      margin-top: 15px;
+      font-size: 1em;
+      color: #5C3D2E;
+    }
+
+    .login-link a {
+      color: #874C32;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .login-link a:hover {
+      color: #5C3D2E;
+      text-decoration: underline;
+    }
+
+    /* Social Links */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .social-links a {
+      color: #5C3D2E;
+      font-size: 2em;
+      text-decoration: none;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #874C32;
+      transform: scale(1.2);
+    }
+
+/* Flexbox Container */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color:rgb(255, 255, 255);
+    padding: 20px;
+}
