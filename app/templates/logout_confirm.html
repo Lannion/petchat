@@ -1,32 +1,73 @@
 {% extends 'base.html' %}
 {% block content %}
 <style>
-    /* Flexbox Container */
-    .form-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color:rgb(255, 255, 255);
-        padding: 20px;
+    /* Heading Style */
+    .form-container h1 {
+        font-size: 26px;
+        font-weight: 700;
+        color: #444;
+        margin-bottom: 10px;
     }
 
+    /* Subtitle */
+    .form-container p {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    /* Button Group */
+    .button-group {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    /* Button Styles */
+    .button-group button {
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .button-group button[name="confirm"][value="yes"] {
+        background: linear-gradient(135deg, #28a745, #58d68d);
+        color: white;
+        box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
+    }
+
+    .button-group button[name="confirm"][value="cancel"] {
+        background: linear-gradient(135deg, #ff6b6b, #f86a6a);
+        color: white;
+        box-shadow: 0 5px 10px rgba(255, 107, 107, 0.3);
+    }
+
+    .button-group button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .button-group button:active {
+        transform: scale(0.95);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    }
 </style>
 
-
-
-<div class="col-md-6 offset-md-3">
-<h1>Are you sure you want to log out?</</h1>
-<br/>
-<br/>
-    <div class="form-container">
-        <form method="POST" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button type="submit" name="confirm" value="yes">Yes</button>
+<div class="form-container">
+    <h1>Are You Sure?</h1>
+    <p>You are about to log out. Make sure you’ve saved your progress.</p>
+    <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <div class="button-group">
+            <button type="submit" name="confirm" value="yes">Yes, Log Out</button>
             <button type="submit" name="confirm" value="cancel">Cancel</button>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
 
 {% endblock %}

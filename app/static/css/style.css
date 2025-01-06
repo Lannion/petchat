@@ -1,12 +1,8 @@
-/* Animations */
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
+
 
 /* Navbar Styling */
 .navbar {
-  background: linear-gradient(90deg, #ff7eb3, #ff758f, #ffa69e);
+  background: linear-gradient(90deg, #050203, #050404, #000000);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   animation: fadeInUp 1s ease-in-out;
   padding: 10px 20px;
@@ -132,7 +128,7 @@ body{
     .register-btn button {
       background: linear-gradient(135deg, #FFF, #F3D9B1);
       border: 2px solid #874C32;
-      border-radius: 30px;
+      border-radius: 10px;
       padding: 5px 15px;
       font-size: 1.2em;
       color: #874C32;
